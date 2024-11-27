@@ -1,33 +1,14 @@
-import streamlit as st
+import streamlit as st 
 
-# título de la página
-st.title("Mi Primera App en Streamlit 🎉")
+# 1) crear las paginas 
 
-# Subtítulo
-st.subheader("¡Bienvenido a mi primera aplicación interactiva!")
+uno = st.Page("paginas/uno.py", title = "Algebra Lineal", icon = ":material/star:")  
+dos = st.Page("paginas/dos.py", title = "Dos") 
 
-# texto
-st.write(
-    """
-    Streamlit es una biblioteca increíble para crear aplicaciones web interactivas con Python. 
-    Esta es una demo simple para mostrar algunas características básicas.
-    """
-)
+pg = st.navigation([uno, dos,])   
+#pg = st.navigation({"prueba":[uno], "ecua":[dos]})
 
-# Varios inputs
-nombre = st.text_input("¿Cómo te llamas?", "")
-if nombre:
-    st.write(f"¡Hola, {nombre}! 🎈")
+pg.run()
 
 
-edad = st.slider("¿Cuál es tu edad?", 0, 100, 18)
-st.write(f"Tienes {edad} años. ¡Fantástico!")
-
-
-gusta_streamlit = st.checkbox("¿Te gusta Streamlit?")
-if gusta_streamlit:
-    st.write("¡A mí también me encanta! 😍")
-
-
-st.write("Gracias por probar mi primera app. ¡Espero que te haya gustado!")
 
